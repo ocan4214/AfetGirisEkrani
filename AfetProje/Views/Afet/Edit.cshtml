@@ -1,0 +1,419 @@
+﻿@model AfetProje.Models.Afet
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Afet", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+<div class="form-horizontal">
+    <h4>Afet</h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group ">
+                @Html.Label("Serial No", htmlAttributes: new { @class = "control-label col-md-2", style = " white-space: nowrap" })
+                <div class="col-md-8 col-md-offset-2">
+                    <input class="form-control" type="text" name="ID" value=@Model.ID readonly />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.Label("Glide No", htmlAttributes: new { @class = "control-label col-md-2", style = " white-space: nowrap" })
+                <div class="col-md-8 col-md-offset-2">
+                    <input class="form-control" type="text" name="GlideNo" value=@Model.GlideNo readonly />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstSeen, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+
+                    @Html.EditorFor(model => model.FirstSeen, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                    @Html.ValidationMessageFor(model => model.FirstSeen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastSeen, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.LastSeen, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                    @Html.ValidationMessageFor(model => model.LastSeen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.DaysLast, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.DaysLast, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DaysLast, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.DisasterType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.DropDownListFor(model => model.DisasterType, new SelectList(Enum.GetValues(typeof(DisasterType))), new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DisasterType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Province, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.DropDownListFor(model => model.Province, ViewBag.Province as List<SelectListItem>, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Borough, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.DropDownListFor(model => model.Borough, new SelectList(string.Empty, "Value", "Text"), "--Select City--", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Borough, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Village, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.Village, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Village, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Neighborhood, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.Neighborhood, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Neighborhood, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.BeldeMevki, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.BeldeMevki, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BeldeMevki, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.ReasonofDisaster, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.ReasonofDisaster, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ReasonofDisaster, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-md-offset-2">
+                    @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.ReasonDetails, htmlAttributes: new { @class = "control-labelleft col-md-2" })
+                <div class="col-md-10 ">
+                    @Html.TextBoxFor(model => model.ReasonDetails, new { @class = "form-controllonger" })
+                    @Html.ValidationMessageFor(model => model.ReasonDetails, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.EffectedAreas, htmlAttributes: new { @class = "control-labelleft col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EffectedAreas, new { htmlAttributes = new { @class = "form-controllonger" } })
+                    @Html.ValidationMessageFor(model => model.EffectedAreas, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Source, htmlAttributes: new { @class = "control-labelleft col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-controllonger" } })
+                    @Html.ValidationMessageFor(model => model.Source, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-labelleft col-md-2" })
+                <span class="col-md-2">Pending : @Html.RadioButtonFor(model => model.Status, "Pending")</span>
+                <span class="col-md-2">Approved : @Html.RadioButtonFor(model => model.Status, "Approved")</span>
+                <span class="col-md-2"> Rejected : @Html.RadioButtonFor(model => model.Status, "Rejected")</span>
+                <span class="col-md-2">Online : @Html.RadioButtonFor(model => model.Status, "Online")</span>
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Uploads", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" id="Image" name="upload" multiple /><!-- Buradaki name gönderilecek   public ActionResult Create([Bind(...)Afet afet,HttpPostedFileBase upload) HttpPostedFileBase parametre ismi ile aynı olmalı-->
+        </div>
+    </div>
+
+
+
+    @if (Model.Files.Any())
+    {
+        <table class="col-sm-12 table-hover">
+            <tr class="asd">
+                <th scope="col">Dosyalar</th>
+                <th scope="col">Dosya Yolu</th>
+                <th scope="col">İşlemler</th>
+            </tr>
+
+
+
+            @foreach (var file in Model.Files)
+            {
+                <tr id="row_@file.FileId">
+                    <td>
+                        <img src="@Url.Action("Index","File",new { id = file.FileId })" alt="Upload" style="width:25px;height:25px;" />
+                    </td>
+                    <td>Path</td>
+                    <td><a href="#" class="btn btn-danger" onclick="DeleteJS(@file.FileId)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                </tr>
+            }
+        </table>
+
+    }
+
+
+    <!--Buraya image ve text-->
+    <br />
+    <br />
+    <br />
+    <div class="form-group">
+        <div class="col-md-2 col-md-offset-10">
+            <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+            <input type="reset" value="Clear" class="btn btn-sm btn-primary" />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+        <div id="map" style="height:200px;width:50%;"></div>
+
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl0Awjpo4KdVGjEA0q4CUvhQeHJo-SI4E&callback=initMap">
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#Province").change(function () {
+                $("#Borough").empty();
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("getIlce")",
+                    dataType: "json",
+                    data: { id: $("#Province").val() },
+                    success: function (ilce) {
+                        $.each(ilce, function (i, ilce) {
+                            $("#Borough").append('<option value="' + ilce.Text + '">' + ilce.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert("Failed" + ex);
+                    }
+                });
+                return false;
+            })
+        });
+
+
+
+
+    </script>
+
+
+    <script>
+        var marker;
+        function initMap() {
+            var startPos = { lat: 39.918184935970125, lng: 32.86217187500006 };
+
+            var map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: startPos });
+
+            marker = new google.maps.Marker({ position: startPos, draggable: true, map: map });
+
+            var geocoder = new google.maps.Geocoder;
+            var infowindow = new google.maps.InfoWindow;
+
+
+            google.maps.event.addListener(marker, 'dragend', function () {
+                var Lats = marker.getPosition().lat();
+                var Longs = marker.getPosition().lng();
+                $("#Latitude").val(Lats);
+                $("#Longitude").val(Longs);
+                geoCodeLatLng(geocoder, map, marker, infowindow, Lats, Longs);
+            });
+        }
+
+        function geoCodeLatLng(geocoder, map, marker, infowindow, Lat, Long) {
+            var stringArr;
+            var latlng = { lat: parseFloat(Lat), lng: parseFloat(Long) };
+            geocoder.geocode({ 'location': latlng }, function (result, status) {
+                if (status == 'OK') {
+                    if (result[0]) {
+                        map.setZoom(11);
+                        marker.setPosition(latlng);
+
+                        stringArr = result[0].formatted_address.split(',');
+                        var stringArrPro = stringArr[2].split('/');
+                        var stringArrBro = stringArrPro[0].split(' ');
+                        $("#Province").val(stringArrPro[1]);
+                        $("#Borough").val(stringArrBro[2]);
+                        $("#Village")
+                        $("#Neighborhood").val(stringArr[0])
+                        $("#BeldeMevki")
+                        infowindow.setContent(result[0].formatted_address);
+                        infowindow.open(map, marker);
+                    }
+                    else {
+                        window.alert('No results found');
+                    }
+                }
+                else {
+                    window.alert('Geocoder failed due to: ' + status);
+                }
+            });
+
+        }
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $(".date-picker").datepicker({
+                showOn: "button",
+                buttonImage: "/Icons/calendar.png",
+                buttonImageOnly: true,
+                buttonText: "Select date",
+                dateFormat: "yy-mm-dd"
+            });
+
+        });
+
+    </script>
+
+
+
+}
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCV9jnDSFNYrVPOdqVukVUU3WpALVBTTx8&callback=initMap" async defer></script>
+<script type="text/javascript">
+    $(document).ready(function initMap() {
+        //map..
+        var map = new google.maps.Map(document.getElementById('dvMap'), {
+            center: {
+                lat: 10.9968683,
+                lng: 76.00882
+            },
+            zoom: 15
+        });
+        //marker..
+        var marker = new google.maps.Marker({
+            position: {
+                lat: 10.9968683,
+                lng: 76.00882
+            },
+            map: map,
+            draggable: true
+        });
+
+        //dragend event of marker
+        google.maps.event.addListener(marker, 'dragend', function () {
+            var Lats = marker.getPosition().lat();
+            var Longs = marker.getPosition().lng();
+
+            $('#Latitude').val(Lats);
+            $('#Longitude').val(Longs);//id selector # bunun ile bu id'ye denk gelen inputların değerlerini atıyoruz
+
+        });
+    });
+</script>-->

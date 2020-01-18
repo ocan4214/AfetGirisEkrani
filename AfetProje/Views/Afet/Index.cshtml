@@ -1,0 +1,164 @@
+﻿@model IEnumerable<AfetProje.Models.Afet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GlideNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstSeen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastSeen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DaysLast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisasterType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Borough)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Village)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Neighborhood)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeldeMevki)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonofDisaster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EffectedAreas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {@Html.HiddenFor(modelItem => item.ID, new { id = "SerialNo" })
+    <tr>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.GlideNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstSeen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastSeen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DaysLast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisasterType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Province)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Borough)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Village)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Neighborhood)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeldeMevki)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReasonofDisaster)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReasonDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EffectedAreas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <!-- <script>
+         $(document).ready(function () {
+             $.ajax({
+                     type: "POST",
+                     url: "@Url.Action("getIlName")",
+                     dataType: "json",
+                     data: { id: $("#SerialNo").val() },
+                     success: function (ilname) {
+                             $("#proname").append('<p"' + ilname + '">' + '</p>');
+                         }
+                     },
+                     error: function (ex) {
+                         alert("Failed" + ex);
+                     }
+                 });
+         });
+
+     </script>*/-->
+
+
+}

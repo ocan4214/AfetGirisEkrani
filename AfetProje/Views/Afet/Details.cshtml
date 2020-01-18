@@ -1,0 +1,166 @@
+﻿@model AfetProje.Models.Afet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Afet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @if(Model.Files.Any())
+        {
+            <dt>
+                Images
+            </dt>
+            foreach(var file in Model.Files)
+            { 
+            <dd>
+                <img src="@Url.Action("Index","File",new { id = file.FileId  })" alt="Upload" /><!--Burada FileControllerın index methoduna query ile id yi bulup bu method bize geri dönüş olarak dosyayı veriyor-->
+            </dd>
+            }
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.GlideNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlideNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstSeen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstSeen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastSeen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastSeen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysLast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysLast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisasterType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisasterType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+
+        <dd>
+            @ViewBag.AfetName
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Borough)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Borough)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Village)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Village)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Neighborhood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Neighborhood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeldeMevki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeldeMevki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReasonofDisaster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReasonofDisaster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReasonDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReasonDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectedAreas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EffectedAreas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

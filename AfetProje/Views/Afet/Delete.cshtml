@@ -1,0 +1,160 @@
+﻿@model AfetProje.Models.Afet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Afet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GlideNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlideNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstSeen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstSeen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastSeen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastSeen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysLast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysLast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisasterType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisasterType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Borough)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Borough)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Village)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Village)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Neighborhood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Neighborhood)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeldeMevki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeldeMevki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReasonofDisaster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReasonofDisaster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReasonDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReasonDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectedAreas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EffectedAreas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
